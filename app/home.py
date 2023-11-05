@@ -34,7 +34,7 @@ def make_commit(days: int):
     if days < 1:
         return os.system("git push origin main")
     
-    if days < 100:
+    if days < 170:
         return make_commit(days - 1)
     else:
         # Randomly select a number of commits for each day (between 1 and 3)
@@ -55,27 +55,6 @@ def make_commit(days: int):
         return make_commit(days - 1)
 
 if __name__ == "__main__":
-    make_commit(101)
-# Commit made 101 days ago
-# Commit made 101 days ago
-# Commit made 101 days ago
-# Commit made 101 days ago
-# Commit made 101 days ago
-# Commit made 101 days ago
-# Commit made 101 days ago
-# Commit made 101 days ago
-# Commit made 101 days ago
-# Commit made 101 days ago
-# Commit made 101 days ago
-# Commit made 101 days ago
-# Commit made 101 days ago
-# Commit made 100 days ago
-# Commit made 100 days ago
-# Commit made 100 days ago
-# Commit made 100 days ago
-# Commit made 100 days ago
-# Commit made 100 days ago
-# Commit made 100 days ago
-# Commit made 100 days ago
-# Commit made 100 days ago
-# Commit made 100 days ago
+    make_commit(365)
+
+# Commit made 365 days ago
