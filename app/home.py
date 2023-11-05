@@ -1,0 +1,55 @@
+import os
+import random
+
+# List of possible commit messages
+commit_messages = [
+    "Refactor code",
+    "Fix bug",
+    "Update README",
+    "Improve performance",
+    "Add new feature",
+    "Remove unused code",
+    "Update dependencies",
+    "Optimize function",
+    "Add tests",
+    "Fix typo",
+    "Refactor API endpoints to follow RESTful conventions",
+    "Optimize database queries to reduce load on the server",
+    "Add rate limiting to API to prevent abuse",
+    "Implement JWT-based authentication for secure sessions",
+    "Add middleware for request logging and error handling",
+    "Update ORM models to support relational constraints",
+    "Improve error responses with detailed status codes",
+    "Fix concurrency issues in background job processing",
+    "Refactor data access layer for modularity",
+    "Implement caching layer for frequently accessed data",
+    "Add support for environment-based configuration settings",
+    "Set up automated database migrations for deployment",
+    "Enhance security by sanitizing user input",
+    "Add audit logs for sensitive actions",
+    "Implement webhook processing for real-time updates"
+]
+
+def make_commit(days: int):
+    if days < 1:
+        return os.system("git push origin main")
+    else:
+        # Randomly select a number of commits for each day (between 1 and 3)
+        num_commits = random.randint(1, 22)
+        dates = f"{days} days ago"
+        
+        for _ in range(num_commits):
+            with open(__file__, "a") as file:
+                # Add a comment with the date to simulate a change
+                file.write(f"# Commit made {dates}\n")
+
+            os.system("git add " + __file__)
+            
+            # Select a random commit message
+            message = random.choice(commit_messages)
+            os.system(f'git commit --date="{dates}" -m "{message}"')
+        
+        return make_commit(days - 1)
+
+if __name__ == "__main__":
+    make_commit(365)# Commit made 365 days ago
